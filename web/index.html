@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <meta charset="utf-8"/>
+        <title>Order Form</title>
+
+        <link href="http://fonts.googleapis.com/css?family=Cookie|Open+Sans:400,700" rel="stylesheet" />         
+        <!-- The main CSS file -->
+        <link href="style.css" rel="stylesheet" />
+    </head>
+
+    <body ng-app ng-controller="OrderFormController">
+
+        <form>
+            <h1>Dranken</h1>
+            <ul>
+                <!-- Loop through the services array, assign a click handler, and set or
+                        remove the "active" css class if needed -->
+                <li ng-repeat="service in services" ng-click="toggleActive(service)" ng-class="{
+                                            active:service.active
+                                        }">
+                    <!-- Notice the use of the currency filter, it will format the price -->
+                    {{service.name}} <span>{{service.price| currency}}</span>
+                </li>
+            </ul>
+
+            <div class="total">
+                <!-- Calculate the total price of all chosen services. Format it as currency. -->
+                Total: <span>{{total() | currency}}</span>
+            </div>
+  
+        </form>
+        <!-- Include AngularJS -->
+        <script src="Scripts/angularjs.js"></script>
+        <script src="Scripts/betalenscript.js"></script>
+        
+              <div ng-include src="menu.html"></div>
+         <div ng-view></div>
+         
+    </body>
+</html>
+<!-- Adding the ng-app declaration to initialize AngularJS -->

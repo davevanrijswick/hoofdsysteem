@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        
+        <!-- The main CSS file -->
+        <link href="style.css" rel="stylesheet" />
+    </head>
+        <form>
+                     <div id="main" ng-app>
+                <!-- The navigation menu will get the value of the "active" variable as a class.
+                         The $event.preventDefault() stops the page from jumping when a link is clicked. -->
+                <!-- ng-show will show an element if the value in the quotes is truthful,
+         while ng-hide does the opposite. Because the active variable is not set
+         initially, this will cause the first paragraph to be visible. -->
+
+                <p ng-hide="active">Klik op menu</p>
+                <p ng-show="active">Je hebt <b>{{active}}</b> gekozen</p>
+
+                <nav class="{{active}}" ng-click="$event.preventDefault()">
+                    <!-- When a link in the menu is clicked, we set the active variable -->
+                    <a href="#" class="bestelling" ng-click="active = 'Bestelling'">Bestelling</a>
+                    <a href="#" class="betalen" ng-click="active = 'Betalen'">Betalen</a>
+                    <a href="#" class="text" ng-click="active = 'Text'">Text</a>
+                    <a href="#" class="uitloggen" ng-click="active = 'Uitloggen'">Uitloggen</a>
+                </nav>                
+            </div>
+
+        </form>
+        <!-- Include AngularJS -->
+        <script src="Scripts/angularjs.js"></script>
+    </body>
+</html>
